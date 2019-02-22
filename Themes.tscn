@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Themes.gd" type="Script" id=1]
+[ext_resource path="res://res/paddle2.png" type="Texture" id=2]
+[ext_resource path="res://res/left_arrow.png" type="Texture" id=3]
+[ext_resource path="res://res/play.png" type="Texture" id=4]
+
+[node name="Themes" type="Node2D" index="0"]
+
+position = Vector2( 505.789, 1735.24 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="First" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Second" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Third" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Fourth" type="Sprite" parent="." index="3"]
+
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="play_button" type="Sprite" parent="." index="4"]
+
+position = Vector2( 19.0915, 41.7134 )
+scale = Vector2( 0.489324, 0.489324 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+
