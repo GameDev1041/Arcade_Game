@@ -4,6 +4,7 @@ onready var obstacle = load("res://fire_balls.tscn")
 var obsHold = Array()
 
 onready var diamonds = load("res://diamonds.tscn")
+onready var paddle = load("res://Paddle.tscn")
 var diamondsHold
 var ball_diameter = 110
 
@@ -28,6 +29,7 @@ var point42 = Vector2()
 var timeTrack = 0
 #### downwards force
 var initial_fall_speed = 12
+var rotation_sides = 4
 
 func _ready():
 	screen_size = get_viewport().get_visible_rect().size
@@ -36,7 +38,7 @@ func _ready():
 	get_node("VBoxContainer/HBoxContainer/anti-clock").modulate.a = 0.1
 	get_node("VBoxContainer/HBoxContainer/clock").modulate.a = 0.1
 	randomize()
-	get_node("Paddle").position = Vector2(screen_size.x/2 - (512/7),screen_size.y/1.5)
+#	get_node("Paddle").position = Vector2(screen_size.x/2 - (512/7),screen_size.y/1.5)
 	point11 = Vector2(330,-200)
 	point12 = Vector2(871,-200)
 	point21 = Vector2(320,-200)
@@ -68,6 +70,14 @@ func _ready():
 	obsHold[1].position = pointsArray[1] + Vector2(0,-220)
 	obsHold[1].velocity = 0
 	get_node("GameOver").visible = false
+	
+	var tempPaddle = paddle.instance()
+	add_child(tempPaddle)
+	tempPaddle.set_rotation(4)# = rotation_sides
+	tempPaddle.set_positions(Vector2(screen_size.x/2 - (512/7),screen_size.y/1.5))# = Vector2(screen_size.x/2 - (512/7),screen_size.y/1.5)
+#	tempPaddle.position = Vector2(screen_size.x/2 - (512/7),screen_size.y/1.5)
+#	tempPaddle.rotation_sides = rotation_sides
+	
 #	diamondsHold = diamonds.instance()
 #	diamondsHold.position = Vector2(-500,-100)
 #	add_child(diamondsHold)
@@ -98,7 +108,7 @@ func _process(delta):
 		get_tree().paused = true
 		get_node("GameOver/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Scored").text = str("Scored : ",score)
 	timeTrack += 1
-	print(timeTrack)
+#	print(timeTrack)
 	
 	pass
 
