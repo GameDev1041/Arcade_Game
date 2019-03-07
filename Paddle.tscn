@@ -13,7 +13,7 @@ extents = Vector2( 113.764, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 68.6808 )
 
-[node name="Paddle" type="Node2D" index="0"]
+[node name="Paddle" type="Node2D"]
 
 position = Vector2( 106, 21 )
 scale = Vector2( 0.9, 0.9 )

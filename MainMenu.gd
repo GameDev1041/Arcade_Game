@@ -12,6 +12,7 @@ func _ready():
 	#### insert  levels here and update icon in Themes
 	for i in range(0,total_levels):
 		levels_list.append("res://Manager.tscn")
+	levels_list.insert(1,"res://Level_2.tscn")
 	pass
 
 func _on_Play_TextureButton_pressed():

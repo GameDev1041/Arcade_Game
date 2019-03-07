@@ -4,7 +4,7 @@ onready var obstacle = load("res://fire_balls.tscn")
 var obsHold = Array()
 
 onready var diamonds = load("res://diamonds.tscn")
-onready var paddle = load("res://Paddle.tscn")
+onready var paddle = load("res://level_2_paddle.tscn")
 var diamondsHold
 
 onready var in_game_ui = load("res://In-Game_UI.tscn")
@@ -38,9 +38,9 @@ var initial_fall_speed = 12
 #var initial_fall_speed = 20
 #var rotation_sides = 4
 ### how many balls fall at same time
-var setOfPoints = [2,2,2,2]
+var setOfPoints = [2,2,2]
 var maximum_set_size = 2
-var rotation_angles_list = [0,90,180,270]
+var rotation_angles_list = [0,123,222]
 ## keep track that gap set in starting and followed as it is after
 var single_spawn_first = true
 var multi_spawn_first = true
@@ -51,22 +51,23 @@ func _ready():
 	
 	print(points_to_spawn(0))
 	randomize()
-	point11 = Vector2(330-30,-200)
-	point12 = Vector2(871-30,-200)
-	point21 = Vector2(320,-200)
-	point22 = Vector2(720,-200)
-	point31 = Vector2(120-35,-200)
-	point32 = Vector2(635-35,-200)
-	point41 = Vector2(230,-200)
-	point42 = Vector2(600,-200)
+	## B1 181 ,B2 765,R1 220, R2 665, L1 275, L2 785 
+	point11 = Vector2(181,-200)
+	point12 = Vector2(765,-200)
+	point21 = Vector2(220,-200)
+	point22 = Vector2(665,-200)
+	point31 = Vector2(275,-200)
+	point32 = Vector2(785,-200)
+#	point41 = Vector2(230,-200)
+#	point42 = Vector2(600,-200)
 	pointsArray.insert(0,point11)
 	pointsArray.insert(1,point12)
 	pointsArray.insert(2,point21)
 	pointsArray.insert(3,point22)
 	pointsArray.insert(4,point31)
 	pointsArray.insert(5,point32)
-	pointsArray.insert(6,point41)
-	pointsArray.insert(7,point42)
+#	pointsArray.insert(6,point41)
+#	pointsArray.insert(7,point42)
 	
 	in_game_ui_instance = in_game_ui.instance()
 	add_child(in_game_ui_instance)
@@ -98,6 +99,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	
+#	print(get_viewport().get_mouse_position())
+	
 	if obsHold[0].position.y > screen_size.y/1.3:
 		for i in range(0,maximum_set_size):
 			obsHold[i].position = Vector2(0,-200)

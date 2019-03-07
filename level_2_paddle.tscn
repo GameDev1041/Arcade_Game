@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level_2_paddle.gd" type="Script" id=1]
+[ext_resource path="res://res/Level_2_paddle.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 224.47, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 187.607, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 141.623, 10 )
+
+[node name="level_2_paddle" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 15.5031, 41.2255 )
+texture = ExtResource( 2 )
+offset = Vector2( -13.882, -37.443 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="base_Area2D" type="Area2D" parent="Sprite" index="0"]
+
+position = Vector2( -13.882, -37.443 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/base_Area2D" index="0"]
+
+position = Vector2( 0, 123.805 )
+shape = SubResource( 1 )
+
+[node name="left_Area2D" type="Area2D" parent="Sprite" index="1"]
+
+position = Vector2( -13.882, -37.443 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/left_Area2D" index="0"]
+
+position = Vector2( -73.6398, 5.30737 )
+rotation = -0.726671
+shape = SubResource( 2 )
+
+[node name="right_Area2D" type="Area2D" parent="Sprite" index="2"]
+
+position = Vector2( -13.882, -37.443 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/right_Area2D" index="0"]
+
+position = Vector2( 136.288, 8.86429 )
+rotation = -2.14391
+shape = SubResource( 3 )
+
+
